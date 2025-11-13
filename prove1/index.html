@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProveX - Prove Anything. Forever.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <!-- Floating Hexagons Canvas -->
+    <canvas id="hexCanvas"></canvas>
+    
+    <!-- Noise Texture Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <div class="toggle-orb"></div>
+    </button>
+
+    <!-- Hero Section -->
+<section class="hero" id="hero">
+    <div class="logo-container">
+        <div class="logo-glow"></div>
+        <img src="logo.png" alt="ProveX Logo" class="logo">
+    </div>
+    <h1 class="hero-title">Prove Anything. Forever.</h1>
+    <p class="hero-subtitle">Direct peer-to-peer transaction verification. No middlemen. No trust required.</p>
+    <button class="btn-primary" id="ctaBtn">Prove a Transaction</button>
+</section>
+
+    <!-- Dashboard Preview -->
+    <section class="dashboard-preview">
+        <div class="glass-card dashboard-card">
+            <div class="upload-zone">
+                <svg class="upload-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p>Drop files to verify</p>
+            </div>
+            
+            <div class="proof-cards">
+                <div class="proof-card">
+                    <div class="proof-header">
+                        <span class="proof-title">Contract Agreement Q4 2024</span>
+                        <span class="verified-tag">
+                            <span class="pulse-dot"></span>
+                            Verified
+                        </span>
+                    </div>
+                    <span class="proof-timestamp">2 minutes ago</span>
+                </div>
+                
+                <div class="proof-card">
+                    <div class="proof-header">
+                        <span class="proof-title">Medical Record Authenticity</span>
+                        <span class="verified-tag">
+                            <span class="pulse-dot"></span>
+                            Verified
+                        </span>
+                    </div>
+                    <span class="proof-timestamp">1 hour ago</span>
+                </div>
+                
+                <div class="proof-card">
+                    <div class="proof-header">
+                        <span class="proof-title">Academic Transcript 2023</span>
+                        <span class="verified-tag">
+                            <span class="pulse-dot"></span>
+                            Verified
+                        </span>
+                    </div>
+                    <span class="proof-timestamp">3 hours ago</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Built for Permanence</h2>
+        <div class="features-grid">
+            <div class="glass-card feature-card">
+                <svg class="feature-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <path d="m9 12 2 2 4-4"></path>
+                </svg>
+                <h3 class="feature-title">Immutable Verification</h3>
+                <p class="feature-description">Every proof is cryptographically sealed on-chain, creating an unchangeable record that stands the test of time.</p>
+                <div class="feature-image"></div>
+            </div>
+            
+            <div class="glass-card feature-card">
+                <svg class="feature-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <h3 class="feature-title">Lightning Fast</h3>
+                <p class="feature-description">Generate cryptographic proofs in under 3 seconds. No waiting, no complexity—just instant verification.</p>
+                <div class="feature-image"></div>
+            </div>
+            
+            <div class="glass-card feature-card">
+                <svg class="feature-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <h3 class="feature-title">Zero Trust Model</h3>
+                <p class="feature-description">Mathematical certainty replaces institutional trust. Verify independently without relying on intermediaries.</p>
+                <div class="feature-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <h2 class="section-title">Three Steps to Truth</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-node">
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="glass-card timeline-card">
+                    <h3 class="timeline-title">Upload Your Document</h3>
+                    <p class="timeline-description">Drag and drop any file—contracts, credentials, records. Your data never leaves your device unencrypted.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-node">
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="glass-card timeline-card">
+                    <h3 class="timeline-title">Generate Cryptographic Proof</h3>
+                    <p class="timeline-description">Our zero-knowledge protocol creates a mathematical fingerprint in under 3 seconds, preserving privacy while ensuring authenticity.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-node">
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="glass-card timeline-card">
+                    <h3 class="timeline-title">Verify Forever</h3>
+                    <p class="timeline-description">Your proof is recorded on-chain. Anyone can verify authenticity decades from now without accessing the original document.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2 class="section-title">Trusted by Pioneers</h2>
+        <div class="testimonial-carousel">
+            <div class="glass-card testimonial-card active">
+                <p class="testimonial-quote">"ProveX eliminated our entire verification workflow. What took weeks now happens in seconds, with mathematical certainty instead of bureaucratic delays."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <span class="author-name">Sarah Chen</span>
+                        <span class="author-title">Chief Legal Officer, TechCorp</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-card testimonial-card">
+                <p class="testimonial-quote">"The zero-trust architecture is brilliant. We can verify credentials across borders without exposing sensitive data or relying on intermediaries."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <span class="author-name">Marcus Rodriguez</span>
+                        <span class="author-title">Director of Operations, GlobalED</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-card testimonial-card">
+                <p class="testimonial-quote">"Finally, a verification system that respects privacy by design. The cryptographic proofs are elegant, fast, and genuinely trustworthy."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <span class="author-name">Dr. Aisha Patel</span>
+                        <span class="author-title">Research Lead, Privacy Institute</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-dots">
+            <button class="dot active" data-index="0"></button>
+            <button class="dot" data-index="1"></button>
+            <button class="dot" data-index="2"></button>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <h2 class="section-title">Simple, Transparent Pricing</h2>
+        <div class="pricing-grid">
+            <div class="glass-card pricing-card">
+                <h3 class="pricing-tier">Starter</h3>
+                <div class="pricing-amount">
+                    <span class="price">$29</span>
+                    <span class="period">/month</span>
+                </div>
+                <ul class="pricing-features">
+                    <li>100 verifications/month</li>
+                    <li>Basic API access</li>
+                    <li>Email support</li>
+                    <li>1 team member</li>
+                </ul>
+                <button class="btn-ghost">Get Started</button>
+            </div>
+            
+            <div class="glass-card pricing-card featured">
+                <div class="featured-badge">Most Popular</div>
+                <h3 class="pricing-tier">Professional</h3>
+                <div class="pricing-amount">
+                    <span class="price">$99</span>
+                    <span class="period">/month</span>
+                </div>
+                <ul class="pricing-features">
+                    <li>1,000 verifications/month</li>
+                    <li>Full API + webhooks</li>
+                    <li>Priority support</li>
+                    <li>Unlimited team members</li>
+                    <li>Custom integrations</li>
+                </ul>
+                <button class="btn-primary">Get Started</button>
+            </div>
+            
+            <div class="glass-card pricing-card">
+                <h3 class="pricing-tier">Enterprise</h3>
+                <div class="pricing-amount">
+                    <span class="price">Custom</span>
+                </div>
+                <ul class="pricing-features">
+                    <li>Unlimited verifications</li>
+                    <li>Dedicated infrastructure</li>
+                    <li>24/7 phone support</li>
+                    <li>SLA guarantees</li>
+                    <li>White-label options</li>
+                </ul>
+                <button class="btn-ghost">Contact Sales</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo-glow small"></div>
+                <img src="logo.png" alt="ProveX" class="logo small">
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Product</a>
+                <a href="#" class="footer-link">Documentation</a>
+                <a href="#" class="footer-link">Pricing</a>
+                <a href="#" class="footer-link">About</a>
+                <a href="#" class="footer-link">Contact</a>
+            </div>
+            <p class="footer-copyright">© 2025 ProveX. Built on truth.</p>
+        </div>
+    </footer>
+
+    <!-- CTA Modal -->
+    <div class="modal" id="ctaModal">
+    <div class="modal-overlay"></div>
+    <div class="glass-card modal-content dashboard-modal">
+        <button class="modal-close" id="modalClose">&times;</button>
+        
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <h2 class="modal-title">Transaction Proof Dashboard</h2>
+            <p class="modal-description">Generate cryptographic proofs for direct party-to-party verification</p>
+            <div class="party-indicator">
+                <div class="party-badge active" data-party="sender">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Party A (You)
+                </div>
+                <div class="party-divider">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+                <div class="party-badge" data-party="receiver">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Party B
+                </div>
+            </div>
+        </div>
+
+        <!-- Transaction Input Form -->
+        <div class="transaction-form" id="transactionForm">
+            <div class="form-section">
+                <label class="form-label">Transaction Details</label>
+                <input type="text" placeholder="e.g., Payment for services rendered" class="modal-input" id="transactionDesc" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-section">
+                    <label class="form-label">Amount</label>
+                    <input type="text" placeholder="1000.00" class="modal-input" id="transactionAmount" required>
+                </div>
+                <div class="form-section">
+                    <label class="form-label">Currency</label>
+                    <select class="modal-input" id="transactionCurrency">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="BTC">BTC</option>
+                        <option value="ETH">ETH</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">Party B Identifier (Wallet/Email)</label>
+                <input type="text" placeholder="0x742d...8f9a or party-b@email.com" class="modal-input" id="partyBId" required>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    <input type="checkbox" id="privacyMode" class="privacy-checkbox" checked>
+                    <span>Enable Zero-Knowledge Mode (hide transaction details from blockchain)</span>
+                </label>
+            </div>
+
+            <button type="button" class="btn-primary full-width" id="generateProofBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <path d="m9 12 2 2 4-4"></path>
+                </svg>
+                Generate Proof
+            </button>
+        </div>
+
+        <!-- Proof Generated View -->
+        <div class="proof-generated" id="proofGenerated" style="display: none;">
+            <div class="success-animation">
+                <svg class="checkmark" width="80" height="80" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+
+            <h3 class="proof-title">Proof Generated Successfully</h3>
+            <p class="proof-subtitle">Transaction verified on-chain in 2.3s</p>
+
+            <div class="proof-details-card glass-card">
+                <div class="proof-detail-row">
+                    <span class="proof-label">Proof Hash</span>
+                    <span class="proof-value mono" id="proofHash">0x8f3a...</span>
+                    <button class="copy-btn" data-copy="proofHash">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="proof-detail-row">
+                    <span class="proof-label">Verification Link</span>
+                    <span class="proof-value mono small" id="verifyLink">provex.io/verify/8f3a...</span>
+                    <button class="copy-btn" data-copy="verifyLink">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="proof-detail-row">
+                    <span class="proof-label">Block Height</span>
+                    <span class="proof-value">#18,942,673</span>
+                </div>
+
+                <div class="proof-detail-row">
+                    <span class="proof-label">Privacy Status</span>
+                    <span class="proof-value">
+                        <span class="privacy-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Zero-Knowledge Enabled
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-primary" id="shareProofBtn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="18" cy="5" r="3"></circle>
+                        <circle cx="6" cy="12" r="3"></circle>
+                        <circle cx="18" cy="19" r="3"></circle>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                    </svg>
+                    Share with Party B
+                </button>
+                <button class="btn-ghost" id="newProofBtn">New Proof</button>
+            </div>
+        </div>
+
+        <!-- Party B Verification View -->
+        <div class="party-b-view" id="partyBView" style="display: none;">
+            <h3 class="verify-title">Verify Transaction Proof</h3>
+            <p class="verify-subtitle">Enter the proof hash shared by Party A</p>
+
+            <div class="verify-form">
+                <input type="text" placeholder="0x8f3a4e2b..." class="modal-input" id="verifyInput">
+                <button class="btn-primary full-width" id="verifyBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Verify Proof
+                </button>
+            </div>
+
+            <button class="btn-ghost full-width" id="backToFormBtn">← Back to Create Proof</button>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
